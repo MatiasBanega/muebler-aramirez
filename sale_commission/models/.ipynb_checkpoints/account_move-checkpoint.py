@@ -10,6 +10,11 @@ from odoo import _, api, exceptions, fields, models
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+     #Modifcacion 27/05/21
+    #@api.model
+    #def type(self):
+     #   print("test")
+        
     commission_total = fields.Float(
         string="Commissions", compute="_compute_commission_total", store=True,
     )
@@ -19,6 +24,7 @@ class AccountMove(models.Model):
         copy=False,
     )
 
+    
     @api.depends("line_ids.agent_ids.amount")
     def _compute_commission_total(self):
         for record in self:
