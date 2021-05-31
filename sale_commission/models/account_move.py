@@ -9,7 +9,8 @@ from odoo import _, api, exceptions, fields, models
 
 class AccountMove(models.Model):
     _inherit = "account.move"
-
+    type = fields.Text()
+    #return = True
      #Modifcacion 27/05/21
     #@api.model
     #def type(self):
