@@ -81,7 +81,7 @@ class AccountMoveLine(models.Model):
     def _compute_agent_ids(self):
         self.agent_ids = False  # for resetting previous agents
         for record in self.filtered(
-            lambda x: x.move_id.partner_id and x.move_id.type[:3] == "out"
+            lambda x: x.move_id.partner_id and x.move_id.move_type[:3] == "out"
         ):
             if not record.commission_free and record.product_id:
                 record.agent_ids = record._prepare_agents_vals_partner(
